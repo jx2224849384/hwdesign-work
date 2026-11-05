@@ -1,0 +1,16 @@
+matvec_source:
+    matvec.py
+    UP-TO-DATE
+scenarios_source:
+    scenarios.py
+    UP-TO-DATE
+scenarios:
+    data/scenarios.txt
+    RUNNING...
+    PASSED (0.3 s)
+py_sim:
+    results/pysim_done.txt
+    results/sim_log_w32.csv
+    results/sim_log_w64.csv
+    RUNNING...
+    PASSED (0.5 s)

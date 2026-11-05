@@ -1,0 +1,29 @@
+{
+  "schema_name": "RespHdr",
+  "input_path": "/home/xj2475/hwdesign-work/cmdresp/takehome/matvec/matvec.py",
+  "ok": true,
+  "summary": "Schema is valid with 1 warning.",
+  "errors": [],
+  "warnings": [
+    {
+      "message": "Multiple schema classes were found. schema_info describes the first discovered schema class.",
+      "code": "multiple_schema_classes",
+      "location": {
+        "line": 17,
+        "column": null,
+        "path": "/home/xj2475/hwdesign-work/cmdresp/takehome/matvec/matvec.py"
+      }
+    }
+  ],
+  "schema_info": {
+    "name": "CmdHdr",
+    "kind": "DataList",
+    "field_count": 4,
+    "field_names": [
+      "opcode",
+      "tx_id",
+      "arg0",
+      "arg1"
+    ]
+  }
+}
