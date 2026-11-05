@@ -1,0 +1,207 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/rtl_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module rtl_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_control_s_axi.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_flow_control_loop_pipe_sequential_init.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_matrix_RAM_AUTO_1R1W.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_matrix_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_matvec_Pipeline_commit_loop.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_matvec_Pipeline_commit_loop
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_matvec_Pipeline_dot_loop.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_matvec_Pipeline_dot_loop
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_matvec_Pipeline_result_words.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_matvec_Pipeline_result_words
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_mul_16s_16s_32_1_1.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_mul_16s_16s_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_mul_32s_32s_32_2_1.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_mul_32s_32s_32_2_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_mul_8s_8s_8_1_1.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_mul_8s_8s_8_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_regslice_both.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_regslice_both
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_vector_RAM_AUTO_1R1W.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_vector_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/verilog/matvec_write_axi4_stream_impl.v" into library work
+INFO: [VRFC 10-311] analyzing module matvec_write_axi4_stream_impl
+
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /eda/xilinx/2026.1/Vivado/bin/unwrapped/lnx64.o/xelab rtl_tb -s matvec_rtl -debug typical 
+Multi-threading is on. Using 126 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.matvec_matrix_RAM_AUTO_1R1W
+Compiling module work.matvec_vector_RAM_AUTO_1R1W
+Compiling module work.matvec_write_axi4_stream_impl
+Compiling module work.matvec_flow_control_loop_pipe_se...
+Compiling module work.matvec_matvec_Pipeline_commit_lo...
+Compiling module work.matvec_mul_16s_16s_32_1_1(NUM_ST...
+Compiling module work.matvec_matvec_Pipeline_dot_loop
+Compiling module work.matvec_matvec_Pipeline_result_wo...
+Compiling module work.matvec_control_s_axi
+Compiling module work.matvec_mul_32s_32s_32_2_1(NUM_ST...
+Compiling module work.matvec_mul_8s_8s_8_1_1(NUM_STAGE...
+Compiling module work.matvec_regslice_both(DataWidth=3...
+Compiling module work.matvec_regslice_both(DataWidth=4...
+Compiling module work.matvec_regslice_both(DataWidth=1...
+Compiling module work.matvec
+Compiling module work.rtl_tb
+Built simulation snapshot matvec_rtl
+
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Wed Nov  4 23:43:13 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/matvec_rtl/xsim_script.tcl
+# xsim {matvec_rtl} -testplusarg ROOT=/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/evidence -autoloadwcfg -tclbatch {/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/rtl_trace.tcl}
+Time resolution is 1 ps
+source /home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/rtl_trace.tcl
+## open_vcd /home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/evidence/rtl.vcd
+## log_vcd /rtl_tb/dut/*
+## run all
+PIN_RTL end_unconfigured PASS consumed=4 expected=4 output=0 status=0/0/0
+PIN_RTL config_only PASS consumed=12 expected=12 output=0 status=0/0/0
+PIN_RTL example_17_39 PASS consumed=18 expected=18 output=7 status=0/0/0
+PIN_RTL example_negative PASS consumed=21 expected=21 output=7 status=0/0/0
+PIN_RTL one_by_one PASS consumed=14 expected=14 output=5 status=0/0/0
+PIN_RTL one_by_sixteen PASS consumed=44 expected=44 output=5 status=0/0/0
+PIN_RTL sixteen_by_one PASS consumed=29 expected=29 output=35 status=0/0/0
+PIN_RTL zeros PASS consumed=52 expected=52 output=17 status=0/0/0
+PIN_RTL positive_overflow32 PASS consumed=284 expected=284 output=35 status=0/0/0
+PIN_RTL negative_overflow32 PASS consumed=284 expected=284 output=35 status=0/0/0
+PIN_RTL signed_extremes PASS consumed=27 expected=27 output=7 status=0/0/0
+PIN_RTL reconfigure_dimensions PASS consumed=51 expected=51 output=19 status=0/0/0
+PIN_RTL clear_accumulators PASS consumed=30 expected=30 output=21 status=0/0/0
+PIN_RTL repeated_tx_id PASS consumed=24 expected=24 output=14 status=0/0/0
+PIN_RTL source_gaps PASS consumed=18 expected=18 output=7 status=0/0/0
+PIN_RTL output_backpressure PASS consumed=18 expected=18 output=7 status=0/0/0
+PIN_RTL activation_unconfigured PASS consumed=4 expected=4 output=0 status=1/3/4294967295
+PIN_RTL recover_activation_unconfigured PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL random_rectangular PASS consumed=778 expected=778 output=240 status=0/0/0
+PIN_RTL performance_16x16 PASS consumed=424 expected=424 output=280 status=0/0/0
+PIN_RTL header_early_end_1 PASS consumed=1 expected=1 output=0 status=1/1/0
+PIN_RTL recover_header_early_end_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_end_2 PASS consumed=2 expected=2 output=0 status=1/1/4026532096
+PIN_RTL recover_header_early_end_2 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_end_3 PASS consumed=3 expected=3 output=0 status=1/1/4026532096
+PIN_RTL recover_header_early_end_3 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_missing_end PASS consumed=4 expected=4 output=0 status=1/1/4026532096
+PIN_RTL recover_header_missing_end PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_config_1 PASS consumed=1 expected=1 output=0 status=1/1/0
+PIN_RTL recover_header_early_config_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_config_2 PASS consumed=2 expected=2 output=0 status=1/1/4026532097
+PIN_RTL recover_header_early_config_2 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_config_3 PASS consumed=3 expected=3 output=0 status=1/1/4026532097
+PIN_RTL recover_header_early_config_3 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_missing_config PASS consumed=4 expected=4 output=0 status=1/1/4026532097
+PIN_RTL recover_header_missing_config PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_data_1 PASS consumed=1 expected=1 output=0 status=1/1/0
+PIN_RTL recover_header_early_data_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_data_2 PASS consumed=2 expected=2 output=0 status=1/1/4026532098
+PIN_RTL recover_header_early_data_2 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_data_3 PASS consumed=3 expected=3 output=0 status=1/1/4026532098
+PIN_RTL recover_header_early_data_3 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_missing_data PASS consumed=4 expected=4 output=0 status=1/1/4026532098
+PIN_RTL recover_header_missing_data PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_unknown_1 PASS consumed=1 expected=1 output=0 status=1/1/0
+PIN_RTL recover_header_early_unknown_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_unknown_2 PASS consumed=2 expected=2 output=0 status=1/1/4026532195
+PIN_RTL recover_header_early_unknown_2 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_early_unknown_3 PASS consumed=3 expected=3 output=0 status=1/1/4026532195
+PIN_RTL recover_header_early_unknown_3 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL header_missing_unknown PASS consumed=4 expected=4 output=0 status=1/1/4026532195
+PIN_RTL recover_header_missing_unknown PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL unknown_opcode PASS consumed=4 expected=4 output=0 status=1/2/301
+PIN_RTL recover_unknown_opcode PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_unconfigured PASS consumed=4 expected=4 output=0 status=1/3/302
+PIN_RTL recover_data_unconfigured PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL invalid_dimensions_0_1 PASS consumed=4 expected=4 output=0 status=1/4/303
+PIN_RTL recover_invalid_dimensions_0_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL invalid_dimensions_1_0 PASS consumed=4 expected=4 output=0 status=1/4/303
+PIN_RTL recover_invalid_dimensions_1_0 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL invalid_dimensions_17_1 PASS consumed=4 expected=4 output=0 status=1/4/303
+PIN_RTL recover_invalid_dimensions_17_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL invalid_dimensions_1_17 PASS consumed=4 expected=4 output=0 status=1/4/303
+PIN_RTL recover_invalid_dimensions_1_17 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL invalid_dimensions_4294967295_16 PASS consumed=4 expected=4 output=0 status=1/4/303
+PIN_RTL recover_invalid_dimensions_4294967295_16 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_zero_length PASS consumed=12 expected=12 output=0 status=1/4/304
+PIN_RTL recover_data_zero_length PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_wrong_length PASS consumed=12 expected=12 output=0 status=1/4/304
+PIN_RTL recover_data_wrong_length PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_reserved PASS consumed=12 expected=12 output=0 status=1/4/304
+PIN_RTL recover_data_reserved PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL end_reserved_1_0 PASS consumed=4 expected=4 output=0 status=1/4/305
+PIN_RTL recover_end_reserved_1_0 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL end_reserved_0_1 PASS consumed=4 expected=4 output=0 status=1/4/305
+PIN_RTL recover_end_reserved_0_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL config_early_1 PASS consumed=5 expected=5 output=0 status=1/5/306
+PIN_RTL recover_config_early_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL config_early_3 PASS consumed=7 expected=7 output=0 status=1/5/306
+PIN_RTL recover_config_early_3 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL config_missing PASS consumed=8 expected=8 output=0 status=1/6/307
+PIN_RTL recover_config_missing PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early PASS consumed=13 expected=13 output=0 status=1/5/308
+PIN_RTL recover_data_early PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_missing PASS consumed=14 expected=14 output=0 status=1/6/309
+PIN_RTL recover_data_missing PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL failed_reconfiguration PASS consumed=19 expected=19 output=7 status=1/5/311
+PIN_RTL recover_failed_reconfiguration PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL failed_data_after_success PASS consumed=19 expected=19 output=7 status=1/5/313
+PIN_RTL recover_failed_data_after_success PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_1 PASS consumed=25 expected=25 output=0 status=1/5/401
+PIN_RTL recover_data_early16_1 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_2 PASS consumed=26 expected=26 output=0 status=1/5/402
+PIN_RTL recover_data_early16_2 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_3 PASS consumed=27 expected=27 output=0 status=1/5/403
+PIN_RTL recover_data_early16_3 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_4 PASS consumed=28 expected=28 output=0 status=1/5/404
+PIN_RTL recover_data_early16_4 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_5 PASS consumed=29 expected=29 output=0 status=1/5/405
+PIN_RTL recover_data_early16_5 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_6 PASS consumed=30 expected=30 output=0 status=1/5/406
+PIN_RTL recover_data_early16_6 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_7 PASS consumed=31 expected=31 output=0 status=1/5/407
+PIN_RTL recover_data_early16_7 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_8 PASS consumed=32 expected=32 output=0 status=1/5/408
+PIN_RTL recover_data_early16_8 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_9 PASS consumed=33 expected=33 output=0 status=1/5/409
+PIN_RTL recover_data_early16_9 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_10 PASS consumed=34 expected=34 output=0 status=1/5/410
+PIN_RTL recover_data_early16_10 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_11 PASS consumed=35 expected=35 output=0 status=1/5/411
+PIN_RTL recover_data_early16_11 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_12 PASS consumed=36 expected=36 output=0 status=1/5/412
+PIN_RTL recover_data_early16_12 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_13 PASS consumed=37 expected=37 output=0 status=1/5/413
+PIN_RTL recover_data_early16_13 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_14 PASS consumed=38 expected=38 output=0 status=1/5/414
+PIN_RTL recover_data_early16_14 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_early16_15 PASS consumed=39 expected=39 output=0 status=1/5/415
+PIN_RTL recover_data_early16_15 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL config_early256_255 PASS consumed=259 expected=259 output=0 status=1/5/500
+PIN_RTL recover_config_early256_255 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL config_missing256 PASS consumed=260 expected=260 output=0 status=1/6/501
+PIN_RTL recover_config_missing256 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL data_missing16 PASS consumed=40 expected=40 output=0 status=1/6/502
+PIN_RTL recover_data_missing16 PASS consumed=18 expected=18 output=5 status=0/0/0
+PIN_RTL_SUMMARY tests=126 failures=0
+$finish called at time : 247990 ns : File "/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/rtl_tb.sv" Line 199
+run: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:13 . Memory (MB): peak = 1721.363 ; gain = 0.000 ; free physical = 11311 ; free virtual = 1164112
+## close_vcd
+## quit
+INFO: xsimkernel Simulation Memory Usage: 521768 KB (Peak: 566216 KB), Simulation CPU Usage: 5100 ms
+INFO: [Common 17-206] Exiting xsim at Wed Nov  4 23:43:30 2026...

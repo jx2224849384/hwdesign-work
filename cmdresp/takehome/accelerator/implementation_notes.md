@@ -1,0 +1,11 @@
+Maintained source is adapted from the repository's prior hand-written matrix-vector implementation and Waveflow stream_inband scaffold. The previously deleted matvec directory remains untouched. The original revision-2 report and machine-readable run history are preserved under evidence/history/previous_*; they are historical observations, not evidence for the new implementation.
+
+Revision-3 changes: all three status fields are uint32; interface_codegen.py extends Waveflow's signature emitter before files are generated, taking axis_register_modes from MatvecAccel; s_in is emitted with register_mode=off. The local extension leaves the installed package and all generated files unedited. Header and payload read loops explicitly disable pipelining so a validation branch resolves before another read. The computation's dot-product pipeline remains unchanged.
+
+The generated wide int64 AXIS helper in this Waveflow version discards its TLAST argument. The maintained body therefore uses its array serializer and the supported write_axi4_word utility to frame the low/high words. There is no manual bit packing or generated-code patch.
+
+The verification additions cover repeated IDs, state clearing without reset, deliberate source/sink stalls, every early TLAST position of a 16-element vector, matrix boundary framing, and explicit physical reset recovery. Performance analysis now uses inclusive latency and N divided by the full requested DATA window. Checkers reject deliberately corrupted result bits, TLAST, status and consumption counts.
+
+AMD documents AXIS register_mode=off in [UG1399](https://docs.amd.com/r/2025.1-English/ug1399-vitis-hls/pragma-HLS-interface). The emitted pragma, synthesis binding and pin traces are each retained and checked; the directive's presence alone is not treated as proof of stopping.
+
+The first revision-3 pin simulation passed every response, status, and stopping assertion. Subsequent coverage analysis correctly failed `output_backpressure.checks.sink_pause_exercised`: the periodic READY pattern happened not to overlap a VALID output word. The testbench now holds READY low until VALID arrives, then holds it for twelve more clocks. The RTL suite and analysis were rerun without changing the accelerator or weakening that coverage assertion; the earlier pin observations and failed analysis remain in history.

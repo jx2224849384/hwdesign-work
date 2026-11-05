@@ -1,0 +1,38 @@
+{
+  "wrong_result_bit": {
+    "pass": false,
+    "checks": {
+      "response_words_and_tlast": false,
+      "status": true,
+      "accepted_count": true,
+      "unread_words_and_tlast": true
+    }
+  },
+  "missing_output_tlast": {
+    "pass": false,
+    "checks": {
+      "response_words_and_tlast": false,
+      "status": true,
+      "accepted_count": true,
+      "unread_words_and_tlast": true
+    }
+  },
+  "extra_input_accepted": {
+    "pass": false,
+    "checks": {
+      "response_words_and_tlast": true,
+      "status": true,
+      "accepted_count": false,
+      "unread_words_and_tlast": false
+    }
+  },
+  "uncleared_status": {
+    "pass": false,
+    "checks": {
+      "response_words_and_tlast": true,
+      "status": false,
+      "accepted_count": true,
+      "unread_words_and_tlast": true
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "binding_lines": [
+    "INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_data_V' to 'axis'.",
+    "INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_keep_V' to 'axis'.",
+    "INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_strb_V' to 'axis'.",
+    "INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_last_V' to 'axis'."
+  ],
+  "no_registered_input": true,
+  "source": "evidence/synth.log"
+}

@@ -1,0 +1,28 @@
+{
+  "python": {
+    "file": "python_checks.json",
+    "scenarios": 126,
+    "passing": 126,
+    "pass": true
+  },
+  "csim": {
+    "file": "csim_checks.json",
+    "scenarios": 126,
+    "passing": 126,
+    "pass": true
+  },
+  "cosim": {
+    "file": "cosim_checks.json",
+    "scenarios": 126,
+    "passing": 126,
+    "pass": true
+  },
+  "rtl": {
+    "file": "rtl_checks.json",
+    "scenarios": 126,
+    "passing": 126,
+    "pass": true
+  },
+  "latency": 422,
+  "clock_ns": 6.931
+}

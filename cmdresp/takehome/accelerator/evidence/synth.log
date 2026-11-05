@@ -1,0 +1,190 @@
+
+****** vitis-run v2026.1 (64-bit)
+  **** SW Build 6497934 on 2026-06-16-10:22:25
+  **** Start of session at: Wed Nov  4 23:42:04 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2026.1 6493734
+Sourcing Tcl script '/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/run.tcl'
+INFO: [HLS 200-1510] Running: open_project hls_proj 
+WARNING: [HLS 200-2182] The 'hls_proj' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening solution '/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj'.
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Opening solution '/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg484-1'
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 1.05 seconds. CPU system time: 0.14 seconds. Elapsed time: 1.3 seconds; current allocated memory: 286.227 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file 'gen/matvec.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 7.96 seconds. CPU system time: 0.95 seconds. Elapsed time: 9.52 seconds; current allocated memory: 292.113 MB.
+INFO: [HLS 200-1995] There were 3,092 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'int32_array_utils::read_axi4_stream_elem_impl<32>::run(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_int<32>*, streamutils::tlast_status&, int)' into 'void int32_array_utils::read_axi4_stream_lane<32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_int<32>*, int, streamutils::tlast_status&)' (include/int32_array_utils.h:263:5)
+INFO: [HLS 214-131] Inlining function 'int64_array_utils::write_array_elem_impl<32>::run(ap_int<64> const*, ap_uint<32>*, int)' into 'void int64_array_utils::write_array_lane<32>(ap_int<64> const*, ap_uint<32>*, int)' (include/int64_array_utils.h:302:5)
+INFO: [HLS 214-131] Inlining function 'void int64_array_utils::write_array_lane<32>(ap_int<64> const*, ap_uint<32>*, int)' into 'void matvec_impl::body<32, 32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (gen/../matvec_body_impl.tpp:85:17)
+INFO: [HLS 214-131] Inlining function 'matvec_impl::fail(unsigned int, ap_uint<32>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' into 'void matvec_impl::body<32, 32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (gen/../matvec_body_impl.tpp:58:17)
+INFO: [HLS 214-131] Inlining function 'void int32_array_utils::read_axi4_stream_lane<32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_int<32>*, int, streamutils::tlast_status&)' into 'void matvec_impl::body<32, 32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (gen/../matvec_body_impl.tpp:53:13)
+INFO: [HLS 214-131] Inlining function 'void matvec_impl::body<32, 32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' into 'matvec(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (gen/matvec.cpp:16:5)
+INFO: [HLS 200-1995] There were 705 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 539 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-178] Inlining function 'CmdHdr::read_array_impl(CmdHdr::word_bw_tag<32>, CmdHdr*, ap_uint<32> const*) (.52.59.66.73.80.87)' into 'void CmdHdr::read_array<32>(ap_uint<32> const*)' (include/cmd_hdr.h:148:0)
+INFO: [HLS 214-178] Inlining function 'void streamutils::write_axi4_word<32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>, bool)' into 'RespHdr::write_axi4_stream_impl(RespHdr::word_bw_tag<32>, RespHdr const*, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, bool)' (include/resp_hdr.h:105:0)
+INFO: [HLS 214-178] Inlining function 'void CmdHdr::read_array<32>(ap_uint<32> const*)' into 'matvec(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (gen/matvec.cpp:9:0)
+INFO: [HLS 214-178] Inlining function 'void RespHdr::write_axi4_stream<32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, bool) const' into 'matvec(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (gen/matvec.cpp:9:0)
+INFO: [HLS 214-178] Inlining function 'void streamutils::write_axi4_word<32>(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>, bool)' into 'matvec(hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_int<32>, 0ul, 0ul, 0ul, (unsigned char)56, false>, 0>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (gen/matvec.cpp:9:0)
+INFO: [HLS 200-1995] There were 593 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 386 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 376 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 376 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 376 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 376 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 613 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 597 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-376] Pipelining loop< result_words> at gen/../matvec_body_impl.tpp:86:31 due to pipeline_loops threshold
+INFO: [HLS 200-1995] There were 487 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-421] Partitioning small array 'hw.i' due to array size. (gen/../matvec_body_impl.tpp:24:21)
+INFO: [HLS 214-421] Partitioning small array 'packed.i' due to array size. (gen/../matvec_body_impl.tpp:84:29)
+INFO: [HLS 214-248] Applying array_partition to 'hw.i': Complete partitioning on dimension 1. (gen/../matvec_body_impl.tpp:24:21)
+INFO: [HLS 214-248] Applying array_partition to 'packed.i': Complete partitioning on dimension 1. (gen/../matvec_body_impl.tpp:84:29)
+INFO: [HLS 200-1995] There were 421 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 420 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 377 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 290 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.75 seconds. CPU system time: 0.7 seconds. Elapsed time: 8.82 seconds; current allocated memory: 301.828 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 301.828 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 302.996 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 304.809 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 327.699 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.11 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.16 seconds; current allocated memory: 357.961 MB.
+INFO: [HLS 200-2255] Checking Wire Delay Status: Wire Delay Mode is ON
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'matvec' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'write_axi4_stream_impl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.08 seconds; current allocated memory: 357.961 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 357.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'matvec_Pipeline_dot_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'dot_loop'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'dot_loop'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 357.961 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 357.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'matvec_Pipeline_result_words' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'result_words'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'result_words'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 357.961 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 357.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'matvec_Pipeline_commit_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'commit_loop'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'commit_loop'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 357.961 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 357.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'matvec' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 359.398 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 359.398 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'write_axi4_stream_impl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'write_axi4_stream_impl'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 359.398 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'matvec_Pipeline_dot_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'matvec_Pipeline_dot_loop' pipeline 'dot_loop' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_16s_16s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'matvec_Pipeline_dot_loop'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 359.398 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'matvec_Pipeline_result_words' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'matvec_Pipeline_result_words' pipeline 'result_words' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'matvec_Pipeline_result_words'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 359.398 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'matvec_Pipeline_commit_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'matvec_Pipeline_commit_loop' pipeline 'commit_loop' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'matvec_Pipeline_commit_loop'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 360.301 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'matvec' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_data_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_keep_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_strb_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/s_in_V_last_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/m_out_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/m_out_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/m_out_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/m_out_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/halted' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/error' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'matvec/tx_id' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'matvec' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'halted', 'error', 'tx_id' and 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8s_8s_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'matvec'.
+INFO: [RTMG 210-278] Implementing memory 'matvec_matrix_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'matvec_vector_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 361.145 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.51 seconds. CPU system time: 0.08 seconds. Elapsed time: 0.81 seconds; current allocated memory: 367.312 MB.
+INFO: [HLS 200-2225] Wrote inferred directives to file /home/xj2475/hwdesign-work/cmdresp/takehome/accelerator/hls_proj/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.04 seconds. CPU system time: 0.14 seconds. Elapsed time: 1.28 seconds; current allocated memory: 373.309 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for matvec.
+INFO: [VLOG 209-307] Generating Verilog RTL for matvec.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 144.28 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:23; Allocated memory: 87.082 MB.
+MATVEC_STAGE_PASSED synth
+INFO: [HLS 200-112] Total CPU user time: 17.46 seconds. Total CPU system time: 2.53 seconds. Total elapsed time: 25.58 seconds; peak allocated memory: 373.309 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 27s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

@@ -1,0 +1,360 @@
+
+
+================================================================
+== Synthesis Summary Report of 'matvec'
+================================================================
++ General Information: 
+    * Date:           Wed Nov  4 23:42:30 2026
+    * Version:        2026.1 (Build 6493734 on Jun 16 2026)
+    * Project:        hls_proj
+    * Solution:       solution1
+    * Product family: zynq
+    * Target device:  xc7z020-clg484-1
+    
+
+* Performance & Resource Estimates: 
++-----------------------------------+------+---------------+----------+---------+------+----------+---------+-----------+------+---------+---------+-----------+-----------+-----+
+|              Modules              | Issue|               | Iteration|         | Trip |          |       Latency       |      |         |         |           |           |     |
+|              & Loops              | Type | Violation Type|  Latency | Interval| Count| Pipelined| (cycles)|    (ns)   | Slack|  BRAM   |   DSP   |     FF    |    LUT    | URAM|
++-----------------------------------+------+---------------+----------+---------+------+----------+---------+-----------+------+---------+---------+-----------+-----------+-----+
+|+ matvec                           |     -|              -|         -|        -|     -|        no|        -|          -|  0.37|  2 (~0%)|   4 (1%)|  1821 (1%)|  2276 (4%)|    -|
+| o command_loop                    |     -|              -|       742|        -|     -|        no|        -|          -|  7.30|        -|        -|          -|          -|    -|
+|  + write_axi4_stream_impl         |     -|              -|         -|        3|     -|        no|        3|     30.000|  6.01|        -|        -|    4 (~0%)|   70 (~0%)|    -|
+|  + matvec_Pipeline_commit_loop    |     -|              -|         -|      258|     -|       yes|      258|  2.580e+03|  0.79|        -|        -|   21 (~0%)|   66 (~0%)|    -|
+|   o commit_loop                   |     -|              -|         2|        1|   256|       yes|      256|  2.560e+03|  7.30|        -|        -|          -|          -|    -|
+|  o header_loop                    |     -|              -|         2|        -|     4|        no|       12|    120.000|  7.30|        -|        -|          -|          -|    -|
+|  o payload_loop                   |     -|              -|         1|        -|   256|        no|      256|  2.560e+03|  7.30|        -|        -|          -|          -|    -|
+|  o row_loop                       |     -|              -|        29|        -|    16|        no|      464|  4.640e+03|  7.30|        -|        -|          -|          -|    -|
+|   + matvec_Pipeline_dot_loop      |     -|              -|         -|       20|     -|       yes|       20|    200.000|  0.54|        -|  1 (~0%)|  168 (~0%)|  216 (~0%)|    -|
+|    o dot_loop                     |     -|              -|         4|        1|    16|       yes|       18|    180.000|  7.30|        -|        -|          -|          -|    -|
+|   + matvec_Pipeline_result_words  |     -|              -|         -|        4|     -|       yes|        4|     40.000|  2.56|        -|        -|   38 (~0%)|  114 (~0%)|    -|
+|    o result_words                 |     -|              -|         2|        1|     2|       yes|        2|     20.000|  7.30|        -|        -|          -|          -|    -|
++-----------------------------------+------+---------------+----------+---------+------+----------+---------+-----------+------+---------+---------+-----------+-----------+-----+
+    Name Prefix: '+' for module, 'o' for loop, '*' for dataflow
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register    | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL        | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER        | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER      | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR      | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | halted      | 0x10   | 32    | R      | Data signal of halted            |                                                                      |
+| s_axi_control | halted_ctrl | 0x14   | 32    | R      | Control signal of halted         | 0=halted_ap_vld                                                      |
+| s_axi_control | error       | 0x20   | 32    | R      | Data signal of error             |                                                                      |
+| s_axi_control | error_ctrl  | 0x24   | 32    | R      | Control signal of error          | 0=error_ap_vld                                                       |
+| s_axi_control | tx_id       | 0x30   | 32    | R      | Data signal of tx_id             |                                                                      |
+| s_axi_control | tx_id_ctrl  | 0x34   | 32    | R      | Control signal of tx_id          | 0=tx_id_ap_vld                                                       |
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* AXIS
++-----------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface | Direction | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-----------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+| m_out     | out       | both          | 32    | 4     | 1     | 1      | 4     | 1      |
+| s_in      | in        | off           | 32    | 4     | 1     | 1      | 4     | 1      |
++-----------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+-----------------------------------------------------------------------------+
+| Argument | Direction | Datatype                                                                    |
++----------+-----------+-----------------------------------------------------------------------------+
+| s_in     | in        | stream<hls::axis<ap_int<32>, 0UL, 0UL, 0UL, (unsigned char)'8', false>, 0>& |
+| m_out    | out       | stream<hls::axis<ap_int<32>, 0UL, 0UL, 0UL, (unsigned char)'8', false>, 0>& |
+| halted   | out       | ap_uint<32>&                                                                |
+| error    | out       | ap_uint<32>&                                                                |
+| tx_id    | out       | ap_uint<32>&                                                                |
++----------+-----------+-----------------------------------------------------------------------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+---------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Info                               |
++----------+---------------+-----------+---------------------------------------+
+| s_in     | s_in          | interface |                                       |
+| m_out    | m_out         | interface |                                       |
+| halted   | s_axi_control | register  | name=halted offset=0x10 range=32      |
+| halted   | s_axi_control | register  | name=halted_ctrl offset=0x14 range=32 |
+| error    | s_axi_control | register  | name=error offset=0x20 range=32       |
+| error    | s_axi_control | register  | name=error_ctrl offset=0x24 range=32  |
+| tx_id    | s_axi_control | register  | name=tx_id offset=0x30 range=32       |
+| tx_id    | s_axi_control | register  | name=tx_id_ctrl offset=0x34 range=32  |
++----------+---------------+-----------+---------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------------+-----+--------+---------------+--------+----------+---------+
+| Name                            | DSP | Pragma | Variable      | Op     | Impl     | Latency |
++---------------------------------+-----+--------+---------------+--------+----------+---------+
+| + matvec                        | 4   |        |               |        |          |         |
+|   icmp_ln26_fu_605_p2           |     |        | icmp_ln26     | seteq  | auto     | 0       |
+|   add_ln26_fu_611_p2            |     |        | add_ln26      | add    | fabric   | 0       |
+|   icmp_ln30_fu_625_p2           |     |        | icmp_ln30     | seteq  | auto     | 0       |
+|   xor_ln30_fu_631_p2            |     |        | xor_ln30      | xor    | auto     | 0       |
+|   select_ln30_fu_787_p3         |     |        | select_ln30   | select | auto_sel | 0       |
+|   select_ln30_1_fu_794_p3       |     |        | select_ln30_1 | select | auto_sel | 0       |
+|   select_ln30_2_fu_801_p3       |     |        | select_ln30_2 | select | auto_sel | 0       |
+|   icmp_ln38_fu_682_p2           |     |        | icmp_ln38     | setgt  | auto     | 0       |
+|   icmp_ln39_fu_691_p2           |     |        | icmp_ln39     | setne  | auto     | 0       |
+|   or_ln39_fu_697_p2             |     |        | or_ln39       | or     | auto     | 0       |
+|   add_ln41_fu_711_p2            |     |        | add_ln41      | add    | fabric   | 0       |
+|   add_ln41_1_fu_727_p2          |     |        | add_ln41_1    | add    | fabric   | 0       |
+|   or_ln41_fu_743_p2             |     |        | or_ln41       | or     | auto     | 0       |
+|   icmp_ln41_fu_749_p2           |     |        | icmp_ln41     | seteq  | auto     | 0       |
+|   mul_32s_32s_32_2_1_U24        | 3   |        | mul_ln46      | mul    | auto     | 1       |
+|   icmp_ln42_fu_755_p2           |     |        | icmp_ln42     | setne  | auto     | 0       |
+|   icmp_ln42_1_fu_760_p2         |     |        | icmp_ln42_1   | setne  | auto     | 0       |
+|   or_ln42_fu_766_p2             |     |        | or_ln42       | or     | auto     | 0       |
+|   icmp_ln55_fu_812_p2           |     |        | icmp_ln55     | seteq  | auto     | 0       |
+|   icmp_ln47_fu_817_p2           |     |        | icmp_ln47     | seteq  | auto     | 0       |
+|   icmp_ln47_1_fu_827_p2         |     |        | icmp_ln47_1   | setlt  | auto     | 0       |
+|   add_ln57_fu_833_p2            |     |        | add_ln57      | add    | fabric   | 0       |
+|   icmp_ln57_fu_859_p2           |     |        | icmp_ln57     | seteq  | auto     | 0       |
+|   xor_ln57_fu_865_p2            |     |        | xor_ln57      | xor    | auto     | 0       |
+|   select_ln57_3_fu_871_p3       |     |        | select_ln57_3 | select | auto_sel | 0       |
+|   select_ln57_fu_879_p3         |     |        | select_ln57   | select | auto_sel | 0       |
+|   select_ln57_1_fu_887_p3       |     |        | select_ln57_1 | select | auto_sel | 0       |
+|   select_ln57_2_fu_895_p3       |     |        | select_ln57_2 | select | auto_sel | 0       |
+|   icmp_ln72_fu_911_p2           |     |        | icmp_ln72     | seteq  | auto     | 0       |
+|   r_1_fu_917_p2                 |     |        | r_1           | add    | fabric   | 0       |
+|   mul_8s_8s_8_1_1_U25           |     |        | mul_ln75      | mul    | auto     | 0       |
+|   icmp_ln87_fu_936_p2           |     |        | icmp_ln87     | seteq  | auto     | 0       |
+|   or_ln40_fu_772_p2             |     |        | or_ln40       | or     | auto     | 0       |
+|   icmp_ln40_fu_778_p2           |     |        | icmp_ln40     | seteq  | auto     | 0       |
+|  + matvec_Pipeline_commit_loop  | 0   |        |               |        |          |         |
+|    icmp_ln62_fu_81_p2           |     |        | icmp_ln62     | seteq  | auto     | 0       |
+|    add_ln62_fu_87_p2            |     |        | add_ln62      | add    | fabric   | 0       |
+|  + matvec_Pipeline_dot_loop     | 1   |        |               |        |          |         |
+|    icmp_ln75_fu_108_p2          |     |        | icmp_ln75     | seteq  | auto     | 0       |
+|    add_ln75_fu_114_p2           |     |        | add_ln75      | add    | fabric   | 0       |
+|    add_ln78_fu_129_p2           |     |        | add_ln78      | add    | fabric   | 0       |
+|    mul_16s_16s_32_1_1_U7        | 1   |        | product       | mul    | auto     | 0       |
+|    acc_1_fu_163_p2              |     |        | acc_1         | add    | fabric   | 0       |
+|  + matvec_Pipeline_result_words | 0   |        |               |        |          |         |
+|    icmp_ln86_fu_112_p2          |     |        | icmp_ln86     | seteq  | auto     | 0       |
+|    add_ln86_fu_118_p2           |     |        | add_ln86      | add    | fabric   | 0       |
+|    icmp_ln87_1_fu_124_p2        |     |        | icmp_ln87_1   | seteq  | auto     | 0       |
+|    m_out_TDATA                  |     |        | data          | select | auto_sel | 0       |
+|    m_out_TLAST                  |     |        | tlast         | and    | auto     | 0       |
++---------------------------------+-----+--------+---------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+--------------+-----------+------+------+--------+--------+----------+------+---------+------------------+
+| Name              | Usage        | Type      | BRAM | URAM | CE_REG | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |              |           |      |      |        |        |          |      |         | Banks            |
++-------------------+--------------+-----------+------+------+--------+--------+----------+------+---------+------------------+
+| + matvec          |              |           | 2    | 0    |        |        |          |      |         |                  |
+|   control_s_axi_U | interface    | s_axilite |      |      |        |        |          |      |         |                  |
+|   matrix_U        | ram_1p array |           | 1    |      | N      |        | matrix   | auto | 1       | 16, 256, 1       |
+|   staging_U       | ram_1p array |           | 1    |      | N      |        | staging  | auto | 1       | 16, 256, 1       |
+|   vector_U        | ram_1p array |           |      |      | N      |        | vector   | auto | 1       | 16, 16, 1        |
++-------------------+--------------+-----------+------+------+--------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Ignored Pragmas
++--------+---------+---------------------------------------------------------------------+-----------------+
+| Type   | Options | Location                                                            | Messages        |
++--------+---------+---------------------------------------------------------------------+-----------------+
+| INLINE |         | in run_lane (include/int32_array_utils.h:51)                        | Not implemented |
+| INLINE |         | in run (include/int32_array_utils.h:58)                             | Not implemented |
+| INLINE |         | in write_lane (include/int32_array_utils.h:78)                      | Not implemented |
+| INLINE |         | in run (include/int32_array_utils.h:84)                             | Not implemented |
+| INLINE |         | in run (include/int32_array_utils.h:104)                            | Not implemented |
+| INLINE |         | in run (include/int32_array_utils.h:152)                            | Not implemented |
+| INLINE |         | in run (include/int32_array_utils.h:174)                            | Not implemented |
+| INLINE |         | in run (include/int32_array_utils.h:196)                            | Not implemented |
+| INLINE |         | in run (include/int32_array_utils.h:223)                            | Not implemented |
+| INLINE |         | in read_array_lane (include/int32_array_utils.h:238)                | Not implemented |
+| INLINE |         | in write_array_lane (include/int32_array_utils.h:244)               | Not implemented |
+| INLINE |         | in read_stream_lane (include/int32_array_utils.h:250)               | Not implemented |
+| INLINE |         | in write_stream_lane (include/int32_array_utils.h:256)              | Not implemented |
+| INLINE |         | in read_axi4_stream_lane (include/int32_array_utils.h:268)          | Not implemented |
+| INLINE |         | in write_axi4_stream_lane (include/int32_array_utils.h:275)         | Not implemented |
+| INLINE |         | in read_framed_stream_lane (include/int32_array_utils.h:284)        | Not implemented |
+| INLINE |         | in read_framed_stream_lane (include/int32_array_utils.h:290)        | Not implemented |
+| INLINE |         | in write_framed_stream_lane (include/int32_array_utils.h:297)       | Not implemented |
+| INLINE |         | in read_boundary_lane (include/int32_array_utils.h:307)             | Not implemented |
+| INLINE |         | in read_boundary_lane (include/int32_array_utils.h:313)             | Not implemented |
+| INLINE |         | in write_boundary_lane (include/int32_array_utils.h:319)            | Not implemented |
+| INLINE |         | in write_boundary_lane (include/int32_array_utils.h:325)            | Not implemented |
+| INLINE |         | in elem_read (include/int32_array_utils.h:336)                      | Not implemented |
+| INLINE |         | in elem_write (include/int32_array_utils.h:343)                     | Not implemented |
+| INLINE |         | in read_array_slice_dispatch (include/int32_array_utils.h:382)      | Not implemented |
+| UNROLL |         | in read_array_slice_dispatch (include/int32_array_utils.h:393)      | Not implemented |
+| UNROLL |         | in read_array_slice_dispatch (include/int32_array_utils.h:408)      | Not implemented |
+| UNROLL |         | in read_array_slice_dispatch (include/int32_array_utils.h:418)      | Not implemented |
+| INLINE |         | in read_array_slice_dispatch (include/int32_array_utils.h:427)      | Not implemented |
+| INLINE |         | in read_array_slice (include/int32_array_utils.h:439)               | Not implemented |
+| INLINE |         | in write_array_slice_dispatch (include/int32_array_utils.h:456)     | Not implemented |
+| UNROLL |         | in write_array_slice_dispatch (include/int32_array_utils.h:466)     | Not implemented |
+| INLINE |         | in write_array_slice_dispatch (include/int32_array_utils.h:479)     | Not implemented |
+| INLINE |         | in write_array_slice (include/int32_array_utils.h:491)              | Not implemented |
+| INLINE |         | in write_array_slice_rmw_dispatch (include/int32_array_utils.h:507) | Not implemented |
+| UNROLL |         | in write_array_slice_rmw_dispatch (include/int32_array_utils.h:519) | Not implemented |
+| UNROLL |         | in write_array_slice_rmw_dispatch (include/int32_array_utils.h:534) | Not implemented |
+| UNROLL |         | in write_array_slice_rmw_dispatch (include/int32_array_utils.h:547) | Not implemented |
+| INLINE |         | in write_array_slice_rmw_dispatch (include/int32_array_utils.h:558) | Not implemented |
+| INLINE |         | in write_array_slice_rmw (include/int32_array_utils.h:570)          | Not implemented |
+| INLINE |         | in read_array_slice (include/int32_array_utils.h:580)               | Not implemented |
+| INLINE |         | in write_array_slice (include/int32_array_utils.h:586)              | Not implemented |
+| INLINE |         | in read_stream (include/int32_array_utils.h:592)                    | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int32_array_utils.h:603)               | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int32_array_utils.h:630)               | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int32_array_utils.h:637)               | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int32_array_utils.h:644)               | Not implemented |
+| INLINE |         | in write_stream (include/int32_array_utils.h:652)                   | Not implemented |
+| INLINE |         | in write_axi4_stream (include/int32_array_utils.h:663)              | Not implemented |
+| INLINE |         | in read_framed_stream (include/int32_array_utils.h:677)             | Not implemented |
+| INLINE |         | in read_framed_stream (include/int32_array_utils.h:693)             | Not implemented |
+| INLINE |         | in write_framed_stream (include/int32_array_utils.h:700)            | Not implemented |
+| INLINE |         | in run (include/int64_array_utils.h:51)                             | Not implemented |
+| INLINE |         | in run (include/int64_array_utils.h:97)                             | Not implemented |
+| INLINE |         | in run (include/int64_array_utils.h:126)                            | Not implemented |
+| INLINE |         | in run (include/int64_array_utils.h:172)                            | Not implemented |
+| INLINE |         | in run (include/int64_array_utils.h:199)                            | Not implemented |
+| INLINE |         | in run (include/int64_array_utils.h:227)                            | Not implemented |
+| INLINE |         | in run (include/int64_array_utils.h:274)                            | Not implemented |
+| INLINE |         | in read_array_lane (include/int64_array_utils.h:295)                | Not implemented |
+| INLINE |         | in read_stream_lane (include/int64_array_utils.h:307)               | Not implemented |
+| INLINE |         | in write_stream_lane (include/int64_array_utils.h:313)              | Not implemented |
+| INLINE |         | in read_axi4_stream_lane (include/int64_array_utils.h:319)          | Not implemented |
+| INLINE |         | in read_axi4_stream_lane (include/int64_array_utils.h:325)          | Not implemented |
+| INLINE |         | in write_axi4_stream_lane (include/int64_array_utils.h:332)         | Not implemented |
+| INLINE |         | in read_framed_stream_lane (include/int64_array_utils.h:341)        | Not implemented |
+| INLINE |         | in read_framed_stream_lane (include/int64_array_utils.h:347)        | Not implemented |
+| INLINE |         | in write_framed_stream_lane (include/int64_array_utils.h:354)       | Not implemented |
+| INLINE |         | in read_boundary_lane (include/int64_array_utils.h:364)             | Not implemented |
+| INLINE |         | in read_boundary_lane (include/int64_array_utils.h:370)             | Not implemented |
+| INLINE |         | in write_boundary_lane (include/int64_array_utils.h:376)            | Not implemented |
+| INLINE |         | in write_boundary_lane (include/int64_array_utils.h:382)            | Not implemented |
+| INLINE |         | in elem_read (include/int64_array_utils.h:393)                      | Not implemented |
+| INLINE |         | in elem_write (include/int64_array_utils.h:400)                     | Not implemented |
+| INLINE |         | in read_array_slice_dispatch (include/int64_array_utils.h:439)      | Not implemented |
+| UNROLL |         | in read_array_slice_dispatch (include/int64_array_utils.h:450)      | Not implemented |
+| UNROLL |         | in read_array_slice_dispatch (include/int64_array_utils.h:465)      | Not implemented |
+| UNROLL |         | in read_array_slice_dispatch (include/int64_array_utils.h:475)      | Not implemented |
+| INLINE |         | in read_array_slice_dispatch (include/int64_array_utils.h:484)      | Not implemented |
+| INLINE |         | in read_array_slice (include/int64_array_utils.h:496)               | Not implemented |
+| INLINE |         | in write_array_slice_dispatch (include/int64_array_utils.h:513)     | Not implemented |
+| UNROLL |         | in write_array_slice_dispatch (include/int64_array_utils.h:523)     | Not implemented |
+| INLINE |         | in write_array_slice_dispatch (include/int64_array_utils.h:536)     | Not implemented |
+| INLINE |         | in write_array_slice (include/int64_array_utils.h:548)              | Not implemented |
+| INLINE |         | in write_array_slice_rmw_dispatch (include/int64_array_utils.h:564) | Not implemented |
+| UNROLL |         | in write_array_slice_rmw_dispatch (include/int64_array_utils.h:576) | Not implemented |
+| UNROLL |         | in write_array_slice_rmw_dispatch (include/int64_array_utils.h:591) | Not implemented |
+| UNROLL |         | in write_array_slice_rmw_dispatch (include/int64_array_utils.h:604) | Not implemented |
+| INLINE |         | in write_array_slice_rmw_dispatch (include/int64_array_utils.h:615) | Not implemented |
+| INLINE |         | in write_array_slice_rmw (include/int64_array_utils.h:627)          | Not implemented |
+| INLINE |         | in read_array_slice (include/int64_array_utils.h:637)               | Not implemented |
+| INLINE |         | in write_array_slice (include/int64_array_utils.h:643)              | Not implemented |
+| INLINE |         | in read_stream (include/int64_array_utils.h:649)                    | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int64_array_utils.h:660)               | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int64_array_utils.h:687)               | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int64_array_utils.h:694)               | Not implemented |
+| INLINE |         | in read_axi4_stream (include/int64_array_utils.h:701)               | Not implemented |
+| INLINE |         | in write_stream (include/int64_array_utils.h:709)                   | Not implemented |
+| INLINE |         | in write_axi4_stream (include/int64_array_utils.h:720)              | Not implemented |
+| INLINE |         | in read_framed_stream (include/int64_array_utils.h:734)             | Not implemented |
+| INLINE |         | in read_framed_stream (include/int64_array_utils.h:750)             | Not implemented |
+| INLINE |         | in write_framed_stream (include/int64_array_utils.h:757)            | Not implemented |
++--------+---------+---------------------------------------------------------------------+-----------------+
+
+* Inferred Pragmas
++-----------------+---------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------+
+| Type            | Options                               | Location                                                                                  | Inferred From                            |
++-----------------+---------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------+
+| ARRAY_PARTITION | dim=1 type=complete variable=hw.i     | variable hw.i in matvec (matvec_body_impl.tpp:24)                                         | syn.array_partition.complete_threshold=4 |
+| ARRAY_PARTITION | dim=1 type=complete variable=packed.i | variable packed.i in matvec (matvec_body_impl.tpp:84)                                     | syn.array_partition.complete_threshold=4 |
+| PIPELINE        |                                       | loop result_words (gen/../matvec_body_impl.tpp:86:31) in matvec (matvec_body_impl.tpp:86) | syn.compile.pipeline_loops=64            |
++-----------------+---------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------+
+
+* Implemented Pragmas
++----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type           | Options               | Location                                                                                                                                                                                                   |
++----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| INLINE         |                       | in _zn17int32_array_utils26read_axi4_stream_elem_implili32ee3runern3hls6streamins2_4axisi6ap_intili32eelm0elm0elm0elh56elb0eeeli0eeeps6_rn11streamutils12tlast_statusei (include/int32_array_utils.h:126)  |
+| INLINE         |                       | in _zn17int32_array_utils21read_axi4_stream_laneili32eeevrn3hls6streamins1_4axisi6ap_intixt_eelm0elm0elm0elh56elb0eeeli0eeeps4_ili32eeirn11streamutils12tlast_statuse (include/int32_array_utils.h:262)    |
+| INLINE         |                       | in _zn17int64_array_utils21write_array_elem_implili32ee3runepk6ap_intili64eep7ap_uintili32eei (include/int64_array_utils.h:76)                                                                             |
+| INLINE         |                       | in _zn17int64_array_utils16write_array_laneili32eeevpk6ap_intili64eep7ap_uintixt_eei (include/int64_array_utils.h:301)                                                                                     |
+| INLINE         |                       | in _zn11matvec_impll4failej7ap_uintili32eers1_s2_s2_ (matvec_body_impl.tpp:9)                                                                                                                              |
+| INLINE         |                       | in _zn11matvec_impl4bodyili32eli32eeevrn3hls6streamins1_4axisi6ap_intixt_eelm0elm0elm0elh56elb0eeeli0eeerns2_ins3_is4_ixt0_eelm0elm0elm0elh56elb0eeeli0eeer7ap_uintili32eesf_sf_ (matvec_body_impl.tpp:16) |
+| LOOP_TRIPCOUNT | max=256 min=1 avg=128 | in matvec (matvec_body_impl.tpp:50)                                                                                                                                                                        |
+| LOOP_TRIPCOUNT | max=256 min=1 avg=128 | in matvec_pipeline_commit_loop (matvec_body_impl.tpp:64)                                                                                                                                                   |
+| LOOP_TRIPCOUNT | max=16 min=1 avg=8    | in matvec (matvec_body_impl.tpp:73)                                                                                                                                                                        |
+| LOOP_TRIPCOUNT | max=16 min=1 avg=8    | in matvec_pipeline_dot_loop (matvec_body_impl.tpp:77)                                                                                                                                                      |
++----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++----------------+--------------------------------------+---------------------------------------------------------------------+
+| Type           | Options                              | Location                                                            |
++----------------+--------------------------------------+---------------------------------------------------------------------+
+| INTERFACE      | axis port=s_in register_mode=off     | in matvec (gen/matvec.cpp:10)                                       |
+| INTERFACE      | axis port=m_out register_mode=both   | in matvec (gen/matvec.cpp:11)                                       |
+| INTERFACE      | s_axilite port=halted bundle=control | in matvec (gen/matvec.cpp:12)                                       |
+| INTERFACE      | s_axilite port=error bundle=control  | in matvec (gen/matvec.cpp:13)                                       |
+| INTERFACE      | s_axilite port=tx_id bundle=control  | in matvec (gen/matvec.cpp:14)                                       |
+| INTERFACE      | s_axilite port=return bundle=control | in matvec (gen/matvec.cpp:15)                                       |
+| INLINE         |                                      | in run (include/int32_array_utils.h:126)                            |
+| INLINE         |                                      | in read_axi4_stream_lane (include/int32_array_utils.h:262)          |
+| PIPELINE       | ii=1                                 | in read_array_slice_dispatch (include/int32_array_utils.h:404)      |
+| PIPELINE       | ii=1                                 | in read_array_slice_dispatch (include/int32_array_utils.h:432)      |
+| PIPELINE       | ii=1                                 | in write_array_slice_dispatch (include/int32_array_utils.h:463)     |
+| PIPELINE       | ii=1                                 | in write_array_slice_dispatch (include/int32_array_utils.h:484)     |
+| PIPELINE       | ii=1                                 | in write_array_slice_rmw_dispatch (include/int32_array_utils.h:531) |
+| PIPELINE       | ii=1                                 | in write_array_slice_rmw_dispatch (include/int32_array_utils.h:563) |
+| INLINE         |                                      | in run (include/int64_array_utils.h:76)                             |
+| INLINE         |                                      | in write_array_lane (include/int64_array_utils.h:301)               |
+| PIPELINE       | ii=1                                 | in read_array_slice_dispatch (include/int64_array_utils.h:461)      |
+| PIPELINE       | ii=1                                 | in read_array_slice_dispatch (include/int64_array_utils.h:489)      |
+| PIPELINE       | ii=1                                 | in write_array_slice_dispatch (include/int64_array_utils.h:520)     |
+| PIPELINE       | ii=1                                 | in write_array_slice_dispatch (include/int64_array_utils.h:541)     |
+| PIPELINE       | ii=1                                 | in write_array_slice_rmw_dispatch (include/int64_array_utils.h:588) |
+| PIPELINE       | ii=1                                 | in write_array_slice_rmw_dispatch (include/int64_array_utils.h:620) |
+| PIPELINE       | ii=1                                 | in flush_axi4_stream_to_tlast (include/streamutils_hls.h:191)       |
+| INLINE         |                                      | in fail (matvec_body_impl.tpp:9)                                    |
+| INLINE         |                                      | in body (matvec_body_impl.tpp:16)                                   |
+| PIPELINE       | off                                  | in body (matvec_body_impl.tpp:23)                                   |
+| PIPELINE       | off                                  | in body (matvec_body_impl.tpp:27)                                   |
+| PIPELINE       | off                                  | in body (matvec_body_impl.tpp:49)                                   |
+| LOOP_TRIPCOUNT | min=1 max=256                        | in body (matvec_body_impl.tpp:50)                                   |
+| PIPELINE       | ii=1                                 | in body (matvec_body_impl.tpp:63)                                   |
+| LOOP_TRIPCOUNT | min=1 max=256                        | in body (matvec_body_impl.tpp:64)                                   |
+| LOOP_TRIPCOUNT | min=1 max=16                         | in body (matvec_body_impl.tpp:73)                                   |
+| PIPELINE       | ii=1                                 | in body (matvec_body_impl.tpp:76)                                   |
+| LOOP_TRIPCOUNT | min=1 max=16                         | in body (matvec_body_impl.tpp:77)                                   |
++----------------+--------------------------------------+---------------------------------------------------------------------+
+
+

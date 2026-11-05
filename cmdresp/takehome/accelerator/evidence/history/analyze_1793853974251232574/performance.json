@@ -1,0 +1,112 @@
+{
+  "sequence": "performance_16x16, DATA tx_id 1000..1007 under one CONFIG",
+  "vectors": [
+    {
+      "tx_id": 1000,
+      "first_vector_handshake_cycle": 8940,
+      "last_vector_handshake_cycle": 8955,
+      "final_result_handshake_cycle": 9361,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 264,
+      "output_event_index": 34
+    },
+    {
+      "tx_id": 1001,
+      "first_vector_handshake_cycle": 9373,
+      "last_vector_handshake_cycle": 9388,
+      "final_result_handshake_cycle": 9794,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 284,
+      "output_event_index": 69
+    },
+    {
+      "tx_id": 1002,
+      "first_vector_handshake_cycle": 9806,
+      "last_vector_handshake_cycle": 9821,
+      "final_result_handshake_cycle": 10227,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 304,
+      "output_event_index": 104
+    },
+    {
+      "tx_id": 1003,
+      "first_vector_handshake_cycle": 10239,
+      "last_vector_handshake_cycle": 10254,
+      "final_result_handshake_cycle": 10660,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 324,
+      "output_event_index": 139
+    },
+    {
+      "tx_id": 1004,
+      "first_vector_handshake_cycle": 10672,
+      "last_vector_handshake_cycle": 10687,
+      "final_result_handshake_cycle": 11093,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 344,
+      "output_event_index": 174
+    },
+    {
+      "tx_id": 1005,
+      "first_vector_handshake_cycle": 11105,
+      "last_vector_handshake_cycle": 11120,
+      "final_result_handshake_cycle": 11526,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 364,
+      "output_event_index": 209
+    },
+    {
+      "tx_id": 1006,
+      "first_vector_handshake_cycle": 11538,
+      "last_vector_handshake_cycle": 11553,
+      "final_result_handshake_cycle": 11959,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 384,
+      "output_event_index": 244
+    },
+    {
+      "tx_id": 1007,
+      "first_vector_handshake_cycle": 11971,
+      "last_vector_handshake_cycle": 11986,
+      "final_result_handshake_cycle": 12392,
+      "latency_cycles": 422,
+      "continuous_input": true,
+      "no_output_backpressure": true,
+      "latency_pass": true,
+      "input_event_index": 404,
+      "output_event_index": 279
+    }
+  ],
+  "maximum_latency_cycles": 422,
+  "latency_target_cycles": 10000,
+  "latency_pass": true,
+  "N": 8,
+  "elapsed_cycles": 3453,
+  "vectors_per_cycle": 0.0023168259484506225,
+  "continuous_input": true,
+  "no_output_backpressure": true,
+  "source_input": "evidence/rtl/performance_16x16/input_handshakes.txt",
+  "source_output": "evidence/rtl/performance_16x16/output_handshakes.txt",
+  "source_flow_control": "evidence/rtl/performance_16x16/cycles.csv"
+}

@@ -1,0 +1,7 @@
+00000002 0
+00000014 0
+00000002 1
+fffffffd 0
+ffffffff 0
+fffffffc 0
+ffffffff 1

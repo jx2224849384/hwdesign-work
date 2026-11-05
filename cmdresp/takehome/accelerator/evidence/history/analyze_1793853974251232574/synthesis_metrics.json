@@ -1,0 +1,37 @@
+{
+  "estimated_clock_ns": 6.931,
+  "clock_target_ns": 10,
+  "clock_pass": true,
+  "requested_clock_ns": 10.0,
+  "clock_uncertainty_ns": 2.7,
+  "resources": {
+    "BRAM_18K": 2,
+    "DSP": 4,
+    "FF": 1821,
+    "LUT": 2276,
+    "URAM": 0
+  },
+  "loops": [
+    {
+      "loop": "commit_loop",
+      "II": 1,
+      "source": "evidence/synthesis/matvec_Pipeline_commit_loop_csynth.xml",
+      "xpath": "PerformanceEstimates/SummaryOfLoopLatency/commit_loop/PipelineII"
+    },
+    {
+      "loop": "dot_loop",
+      "II": 1,
+      "source": "evidence/synthesis/matvec_Pipeline_dot_loop_csynth.xml",
+      "xpath": "PerformanceEstimates/SummaryOfLoopLatency/dot_loop/PipelineII"
+    },
+    {
+      "loop": "result_words",
+      "II": 1,
+      "source": "evidence/synthesis/matvec_Pipeline_result_words_csynth.xml",
+      "xpath": "PerformanceEstimates/SummaryOfLoopLatency/result_words/PipelineII"
+    }
+  ],
+  "source": "evidence/synthesis/matvec_csynth.xml",
+  "clock_xpath": "PerformanceEstimates/SummaryOfTimingAnalysis/EstimatedClockPeriod",
+  "resources_xpath": "AreaEstimates/Resources"
+}

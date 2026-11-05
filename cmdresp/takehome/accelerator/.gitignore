@@ -1,0 +1,9 @@
+__pycache__/
+.waveflow/
+hls_proj/
+rtl_work/
+*.log
+!evidence/**/*.log
+!evidence/*.log
+*.jou
+evidence/rtl.vcd
